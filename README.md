@@ -67,19 +67,20 @@ file:/// doesn't work without tmp directory
 ```
 Demo
 
+```objectivec
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [paths objectAtIndex:0];
     NSString *basePath = [NSString stringWithFormat:@"%@/%@",path,@"QueHTML/"];
     NSString *htmlPath =  [NSString stringWithFormat:@"%@/%@",path,@"QueHTML/123.html"];
-
     NSURL *fileURL = [self fileURLForBuggyWKWebView8:[NSURL fileURLWithPath:basePath]];
-
     NSString *htmlString = [NSString stringWithContentsOfFile:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"www/QueHTML/123.html"]] encoding:NSUTF8StringEncoding error:nil];//获取文件路径，现在html的文件路径已经改了。
     WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectMake(0 * self.view.bounds.size.width, 0, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     webView.navigationDelegate = self;
     [self.view  addSubview:webView];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"www/QueHTML/123.html"]]]]];
-
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"www/QueHTML/123.html"]]]]];
+    
+```
 ### 2、iOS9~iOS11
 
 iOS9~iOS11 使用这个API
