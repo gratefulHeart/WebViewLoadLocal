@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IPS</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="talqsIPS.css">
+    <link rel="stylesheet" href="talqsMath.css">
+    <style>
+    html,
+    body,
+    #app {
+        height: %fpx;
+    }
+    </style>
+    <script>
+    function dispose() {
+        var audioList = document.querySelectorAll('audio');
+        var videoList = document.querySelectorAll('video');
+        [].forEach.call(audioList, function(item) {
+            item.pause();
+        });
+        [].forEach.call(videoList, function(item) {
+            item.pause();
+        });
+    }
+    </script>
+</head>
+
+<body>
+    <div id="app" talqs-app></div>
+    <div class="keypad"></div>
+    <script>
+    var question = % @;
+    </script>
+    <script src="vendor.min.js"></script>
+    <script src="talqsLib.min.js"></script>
+    <script src="talqsMath.min.js"></script>    
+    <script src="iPadInterface.min.js"></script>
+</body>
+
+</html>
